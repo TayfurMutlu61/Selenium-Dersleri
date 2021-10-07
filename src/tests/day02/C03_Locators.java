@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class C03_Locators {
     public static void main(String[] args) throws InterruptedException {
         //1. Bir class oluşturun: LocatorsIntro
@@ -17,8 +19,7 @@ public class C03_Locators {
         // ii. Password : Test1234!
         // e. Expected user id nin testtechproed@gmail.com oldugunu dogrulayin(verify).
         // f. “Addresses” ve “Sign Out” textlerinin görüntülendiğini( displayed) doğrulayin(verify).
-        //3. Sayfada kac tane link oldugunu bulun.
-//birden fazla findelements solb taraf da list olmali
+
         System.setProperty("webdriver.chrome.driver","C:\\Users\\tayfu\\OneDrive\\Belgeler\\selenium dependencies\\drives\\chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         // a. http://a.testaddressbook.com adresine gidiniz.
@@ -63,6 +64,16 @@ Thread.sleep(2000);
             System.out.println("gorunmuyor tesxt failled");
         }
 
+        //3. Sayfada kac tane link oldugunu bulun.
 
+
+        Thread.sleep(1000);
+        List<WebElement> linkSayisi= driver.findElements(By.tagName("a"));
+        System.out.println("toplam link sayisi: "+linkSayisi.size());
+
+        for (WebElement WB:linkSayisi) {
+            System.out.println(WB.getText());
+        }
+        driver.close();
     }
 }

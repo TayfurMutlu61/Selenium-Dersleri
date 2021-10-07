@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class C04_Homework {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\tayfu\\OneDrive\\Belgeler\\selenium dependencies\\drives\\chromedriver.exe");
         WebDriver driver=new ChromeDriver();
 //1. Bir class oluşturun : AmazonSearchTest
@@ -15,7 +17,7 @@ public class C04_Homework {
 // a.google web sayfasına gidin. https://www. amazon.com/
 // b. Search(ara) “city bike”
 // c. Amazon'da görüntülenen ilgili sonuçların sayısını yazdırın
-// d. “Shopping” e tıklayın.
+
 // e. Sonra karşınıza çıkan ilk sonucun resmine tıklayın.
 
   driver.get("https://www.amazon.com/");
@@ -31,6 +33,15 @@ public class C04_Homework {
 
         WebElement sonucYazisi= driver.findElement(By.xpath("//*[@id=\"search\"]/span/div/span/h1/div/div[1]/div/div/span[1]"));
         System.out.println(sonucYazisi.getText());
+
+        Thread.sleep(2000);
+        // d. “Shopping” e tıklayın.
+        WebElement giftTusu=driver.findElement(By.linkText("Gift Cards"));
+        giftTusu.click();
+
+        Thread.sleep(2000);
+        WebElement cashclick= driver.findElement(By.xpath("//*[@id=\"nav-subnav\"]/a[8]/span"));
+        cashclick.click();
 
     }
 }
