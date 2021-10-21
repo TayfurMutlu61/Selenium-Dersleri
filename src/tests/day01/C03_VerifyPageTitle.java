@@ -23,6 +23,6 @@ public class C03_VerifyPageTitle {
             System.out.println("actualTitle: "+ driver.getTitle());
         }
 
-        driver.close();
+       // driver.close();
     }
 }
